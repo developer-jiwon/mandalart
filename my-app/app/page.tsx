@@ -46,17 +46,23 @@ const MandalartPlanner = () => {
   const [userName, setUserName] = useState<string>('')
   const [showInstructions, setShowInstructions] = useState(false)
   const [showMobileWarning, setShowMobileWarning] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const checkDevice = () => {
       const isMobileOrTablet = window.innerWidth < 1024;
       setShowMobileWarning(isMobileOrTablet);
+      setIsLoading(false);
     };
 
     checkDevice();
     window.addEventListener('resize', checkDevice);
     return () => window.removeEventListener('resize', checkDevice);
   }, []);
+
+  if (isLoading) {
+    return <div className="min-h-screen bg-[#f0e7db]" />;
+  }
 
   const handleGoalChange = (index: number, value: string) => {
     if (value.length > CHARACTER_LIMIT) {
