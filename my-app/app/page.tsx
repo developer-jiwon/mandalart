@@ -165,18 +165,18 @@ const MandalartPlanner = () => {
         <div className="min-h-screen bg-[#f0e7db] flex items-center justify-center">
           <Dialog.Root open={true}>
             <Dialog.Portal>
-              <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f0e7db] p-12 rounded-lg shadow-lg max-w-5xl w-[90vw] text-xl">
-                <div className="space-y-6 text-[#5c4b51]">
-                  <div className="mb-8">
-                    <div className="flex items-center justify-center mb-6">
-                      <Coffee className="h-16 w-16 text-[#8a7a6a]" />
+              <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f0e7db] p-8 rounded-lg shadow-lg w-[80vw] max-w-lg text-lg">
+                <div className="space-y-4 text-[#5c4b51]">
+                  <div className="mb-6">
+                    <div className="flex items-center justify-center mb-4">
+                      <Coffee className="h-12 w-12 text-[#8a7a6a]" />
                     </div>
-                    <Dialog.Title className="text-4xl font-bold text-[#5c4b51] text-center mb-6">Take a Coffee Break! ☕</Dialog.Title>
-                    <p className="text-xl text-center">Please grab coffee with lofi music and enjoy it on desktop version for productivity :)</p>
+                    <Dialog.Title className="text-3xl font-bold text-[#5c4b51] text-center mb-4">Take a Coffee Break! ☕</Dialog.Title>
+                    <p className="text-lg text-center">Please grab coffee with lofi music and enjoy it on desktop version for productivity :)</p>
                   </div>
-                  <div className="mt-6 p-6 bg-[#e0d5c5] rounded-lg">
-                    <p className="font-bold mb-4 text-2xl">💡 Note</p>
-                    <p>This app is optimized for desktop viewing to ensure the best planning experience. We recommend using a device with a larger screen.</p>
+                  <div className="p-4 bg-[#e0d5c5] rounded-lg">
+                    <p className="font-bold mb-2 text-xl">💡 Note</p>
+                    <p className="text-base">This app is optimized for desktop viewing to ensure the best planning experience. We recommend using a device with a larger screen.</p>
                   </div>
                 </div>
               </Dialog.Content>
