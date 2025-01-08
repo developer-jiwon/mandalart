@@ -42,7 +42,7 @@ interface Size {
 const MandalartPlanner = () => {
   const [goals, setGoals] = useState(Array(81).fill(''))
   const [isLocked, setIsLocked] = useState(false)
-  const [gridSize, setGridSize] = useState({ width: 1200, height: 1200 })
+  const [gridSize, setGridSize] = useState({ width: 800, height: 800 })
   const [userName, setUserName] = useState<string>('')
   const [showInstructions, setShowInstructions] = useState(false)
   const [showMobileWarning, setShowMobileWarning] = useState(false)
@@ -264,7 +264,7 @@ const MandalartPlanner = () => {
               <Trash2 className="h-6 w-6" />
             </Button>
 
-            <div className="w-[1200px] h-[1200px] bg-[#e0d5c5] p-4 rounded-lg shadow-lg">
+            <div className="w-[800px] h-[800px] bg-[#e0d5c5] p-4 rounded-lg shadow-lg">
               <div className="grid-container w-full h-full grid grid-cols-9 gap-1">
                 {Array(81).fill(null).map((_, index) => {
                   const col = index % 9
@@ -283,18 +283,11 @@ const MandalartPlanner = () => {
                           ${isRightEdge ? 'border-r-2 border-r-[#8a7a6a]' : ''}
                           ${isBottomEdge ? 'border-b-2 border-b-[#8a7a6a]' : ''}
                           border border-[#a09080] rounded focus:outline-none focus:ring-2 focus:ring-[#8a7a6a]
-                          ${[40].includes(index) ? 'placeholder:text-[#5c4b51] placeholder:font-bold' : ''}
-                          only-screen`}
-                        placeholder={[40].includes(index) ? 'Click' : ''}
-                        value={goals[index]}
-                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleGoalChange(index, e.target.value)}
-                        onClick={() => index === 40 && !isLocked && handleNameInput()}
-                        disabled={isLocked}
-                        aria-label={`Goal ${index + 1}`}
+                          ${[40].includes(index) ? 'placeholder:text-[#5c4b51] placeholder:font-bold' : ''}`}
                         style={{ 
-                          fontSize: `${gridSize.width / 1000}rem`,
+                          fontSize: `${Math.min(gridSize.width / 1200, 0.7)}rem`,
                           lineHeight: '1.2',
-                          padding: '0',
+                          padding: '0.25rem',
                           whiteSpace: 'pre-wrap',
                           wordBreak: 'break-word',
                           textAlign: 'center',
@@ -306,9 +299,14 @@ const MandalartPlanner = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          paddingTop: '40%',
                           ...(isLocked && { opacity: '0.5' })
                         }}
+                        placeholder={[40].includes(index) ? 'Click' : ''}
+                        value={goals[index]}
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleGoalChange(index, e.target.value)}
+                        onClick={() => index === 40 && !isLocked && handleNameInput()}
+                        disabled={isLocked}
+                        aria-label={`Goal ${index + 1}`}
                       />
                       {goals[index]?.length > 0 && (
                         <div className="absolute bottom-0 right-0 text-xs text-[#5c4b51] opacity-50 p-1 pdf-hide">
